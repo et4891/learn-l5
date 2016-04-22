@@ -17,18 +17,21 @@ Route::get("/", function(){
 Route::get("about", "PageController@about");
 Route::get("contact", "PageController@contact");
 
+//ArticlesController
 Route::get("articles", "ArticlesController@index");
 Route::get("articles/create", "ArticlesController@create");
 Route::post("articles", "ArticlesController@store");
 Route::get("articles/{id}", "ArticlesController@show");
 
-
+//KiosksController
 Route::get("kiosks", "KiosksController@index");
 Route::get("kiosks/create", "KiosksController@create");
 Route::post("kiosks", "KiosksController@store");
 Route::get("kiosks/{id}", "KiosksController@show");
 
-
+//PetsController
+Route::get('pets', 'PetsController@index');
+Route::get('pets/{id}', 'PetsController@show');
 
 Route::get("foo", function(){
    return "bar";
