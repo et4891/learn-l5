@@ -18,11 +18,14 @@ Route::get("about", "PageController@about");
 Route::get("contact", "PageController@contact");
 
 Route::get("articles", "ArticlesController@index");
+Route::get("articles/create", "ArticlesController@create");
+Route::post("articles", "ArticlesController@store");
 Route::get("articles/{id}", "ArticlesController@show");
-Route::get("create", "ArticlesController@create");
 
 
 Route::get("kiosks", "KiosksController@index");
+Route::get("kiosks/create", "KiosksController@create");
+Route::post("kiosks", "KiosksController@store");
 Route::get("kiosks/{id}", "KiosksController@show");
 
 
