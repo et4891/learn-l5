@@ -71,7 +71,7 @@ class PetsController extends Controller {
 
         return redirect('pets');
     }
-
+    
     /**
      * @param $id
      * @return mixed
