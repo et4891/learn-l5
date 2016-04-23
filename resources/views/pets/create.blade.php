@@ -34,8 +34,12 @@
         {!! Form::text('adopted', true, ['class' => 'form-control']) !!}
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-md-6 col-sm-6 col-xs-6 col-lg-6">
         {!! Form::submit('Let\'s Welcome The New Ones!', ['class' => 'btn btn-warning form-control']) !!}
+    </div>
+
+    <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
+        <a href="/pets/" class="btn btn-info">Back</a>
     </div>
 
 
