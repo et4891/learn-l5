@@ -35,6 +35,7 @@ Route::get('pets/create', 'PetsController@create');
 Route::post('pets', 'PetsController@store');
 Route::get('pets/{id}', 'PetsController@show');
 Route::post('pets/{id}', 'PetsController@delete');
+Route::post('pets/update/{id}', 'PetsController@update');
 
 
 Route::get("foo", function(){

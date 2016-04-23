@@ -27,8 +27,19 @@ class PetsController extends Controller {
     public function store() {
         $input = Request::all();
 
-        Pet::create($input);
-
+        $id = Request::get('id');
+        $exist = Pet::find($id);
+        if($exist == null){
+            Pet::create($input);
+        }else{
+            $exist->type = $input['type'];
+            $exist->name = $input['name'];
+            $exist->owner = $input['owner'];
+            $exist->notes = $input['notes'];
+            $exist->status = $input['status'];
+            $exist->adopted = $input['adopted'];
+            $exist->save();
+        }
         return redirect('pets');
     }
 
@@ -37,5 +48,10 @@ class PetsController extends Controller {
         $pet->delete();
 
         return redirect('pets');
+    }
+
+    public function update($id) {
+        $pet = Pet::findOrFail($id);
+        return view('pets.update', compact('pet'));
     }
 }

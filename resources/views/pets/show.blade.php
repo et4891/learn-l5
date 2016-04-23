@@ -16,4 +16,12 @@
         </div>
     </div>
     {!! Form::close() !!}
+
+    {!! Form::open(['url' => '/pets/update/' . $pet["id"]]) !!}
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                <p>{!! Form::submit('Update', ['class' => 'btn btn-warning form-control col-md-6']) !!}</p>
+            </div>
+        </div>
+    {!! Form::close() !!}
 @stop
