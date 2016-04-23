@@ -31,7 +31,11 @@ Route::get("kiosks/{id}", "KiosksController@show");
 
 //PetsController
 Route::get('pets', 'PetsController@index');
+Route::get('pets/create', 'PetsController@create');
+Route::post('pets', 'PetsController@store');
 Route::get('pets/{id}', 'PetsController@show');
+Route::post('pets/{id}', 'PetsController@delete');
+
 
 Route::get("foo", function(){
    return "bar";
