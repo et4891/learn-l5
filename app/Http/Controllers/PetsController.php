@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Pet;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Request;
+//use Request;
 
 class PetsController extends Controller {
     /**
@@ -41,11 +41,11 @@ class PetsController extends Controller {
      * @return mixed
      * If pet doesn't exist, create else update
      */
-    public function store() {
-        $input = Request::all();
-
-        $id = Request::get('id');
+    public function store(Request $request) {
+        $input = $request->all();
+        $id = $request->input('id');
         $exist = Pet::find($id);
+
         if($exist == null){
             Pet::create($input);
         }else{

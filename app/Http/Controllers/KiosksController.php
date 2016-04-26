@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Kiosk;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
-use Request;
+//use Request;
 
 class KiosksController extends Controller
 {
@@ -29,9 +29,9 @@ class KiosksController extends Controller
         return view('kiosks.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $input = Request::all();
+        $input = $request->all();
         $input['installed_date'] = Carbon::now();
         
         Kiosk::create($input);
