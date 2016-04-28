@@ -47,11 +47,12 @@ class ArticlesController extends Controller
     }
 
     /**
-     * @param CreateArticleRequest $request
+     * @param Request $request
      * @return mixed
      */
-    public function store(CreateArticleRequest $request)
+    public function store(Request $request)
     {
+        $this->validate($request, ['title' => 'required', 'body' => 'required|min:5']);
         Article::create($request->all());
         return redirect('articles');
     }
