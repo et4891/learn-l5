@@ -18,10 +18,7 @@ Route::get("about", "PageController@about");
 Route::get("contact", "PageController@contact");
 
 //ArticlesController
-Route::get("articles", "ArticlesController@index");
-Route::get("articles/create", "ArticlesController@create");
-Route::post("articles", "ArticlesController@store");
-Route::get("articles/{id}", "ArticlesController@show");
+Route::resource("articles", "ArticlesController");
 
 //KiosksController
 Route::get("kiosks", "KiosksController@index");
@@ -44,8 +41,3 @@ Route::post('posts', 'PostsController@store');
 Route::get('posts/{id}', 'PostsController@show');
 Route::post('posts/{id}', 'PostsController@delete');
 Route::get('posts/update/{id}', 'PostsController@update');
-
-
-Route::get("foo", function(){
-   return "bar";
-});
