@@ -11,7 +11,7 @@ use App\Http\Requests;
 class ArticlesController extends Controller
 {
     public function index(){
-        $articles = Article::latest()->get();
+        $articles = Article::latest('published_at')->published()->get();
         $title = "Articles";
         
         return view('articles.index', compact('articles', 'title'));
@@ -32,10 +32,7 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->all();
-        $input['published_at'] = Carbon::now();
-
-        Article::create($input);
+        Article::create($request->all());
 
         return redirect('articles');
     }
