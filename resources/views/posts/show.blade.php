@@ -1,14 +1,8 @@
 @extends('app')
 @section('content')
-    <h1>{{$post['name']}}</h1>
+    <h2>Title: {{$post->title}}</h2>
     <hr>
-    @foreach($post as $prop => $value)
-        <h3>{{$prop}}: {{$value}}</h3>
-    @endforeach
-    <a href="/posts/">Back</a>
-    <form action="/posts/{{$post['id']}}" method="post">
-        {{ csrf_field() }}
-        <input type="submit" value="Delete" class="btn btn-danger">
-    </form>
-    <a href="/posts/update/{{$post['id']}}">Update</a>
+    <h3>{{$post->body}}</h3>
+    <h6>Date Posted: {{$post->posted_on}}</h6>
+    <a href="/posts/" class="btn btn-info">Back</a>
 @stop

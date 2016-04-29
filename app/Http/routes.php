@@ -35,9 +35,4 @@ Route::post('pets/{id}', 'PetsController@delete');
 Route::post('pets/update/{id}', 'PetsController@update');
 
 //PostsController
-Route::get('posts', 'PostsController@index');
-Route::get('posts/create', 'PostsController@create');
-Route::post('posts', 'PostsController@store');
-Route::get('posts/{id}', 'PostsController@show');
-Route::post('posts/{id}', 'PostsController@delete');
-Route::get('posts/update/{id}', 'PostsController@update');
+Route::resource('posts', 'PostsController');
