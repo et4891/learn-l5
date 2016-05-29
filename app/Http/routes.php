@@ -20,19 +20,27 @@ Route::get("contact", "PageController@contact");
 //ArticlesController
 Route::resource("articles", "ArticlesController");
 
+Route::controllers([
+   'auth' => 'Auth\AuthController',
+   'password' => 'Auth\PasswordController'
+]);
+
 //KiosksController
-Route::get("kiosks", "KiosksController@index");
-Route::get("kiosks/create", "KiosksController@create");
-Route::post("kiosks", "KiosksController@store");
-Route::get("kiosks/{id}", "KiosksController@show");
+//Route::get("kiosks", "KiosksController@index");
+//Route::get("kiosks/create", "KiosksController@create");
+//Route::post("kiosks", "KiosksController@store");
+//Route::get("kiosks/{id}", "KiosksController@show");
 
 //PetsController
-Route::get('pets', 'PetsController@index');
-Route::get('pets/create', 'PetsController@create');
-Route::post('pets', 'PetsController@store');
-Route::get('pets/{id}', 'PetsController@show');
-Route::post('pets/{id}', 'PetsController@delete');
-Route::post('pets/update/{id}', 'PetsController@update');
+//Route::get('pets', 'PetsController@index');
+//Route::get('pets/create', 'PetsController@create');
+//Route::post('pets', 'PetsController@store');
+//Route::get('pets/{id}', 'PetsController@show');
+//Route::post('pets/{id}', 'PetsController@delete');
+//Route::post('pets/update/{id}', 'PetsController@update');
 
 //PostsController
-Route::resource('posts', 'PostsController');
+//Route::resource('posts', 'PostsController');
+//Route::auth();
+//
+Route::get('/home', 'HomeController@index');
