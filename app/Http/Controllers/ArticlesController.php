@@ -18,6 +18,17 @@ use Illuminate\Support\Facades\Auth;
 class ArticlesController extends Controller
 {
     /**
+     * ArticlesController constructor.
+     */
+    public function __construct() {
+        //auth value is referring to the key in Kernel.php > $routeMiddleware array
+//        $this->middleware('auth'); // all routes will be redirected
+//        $this->middleware('auth', ['only' => 'create']);  //only create route will be redirected
+//        $this->middleware('auth', ['except' => 'create']);  //all routes except create will be redirected
+    }
+
+
+    /**
      * @return mixed
      */
     public function index(){
