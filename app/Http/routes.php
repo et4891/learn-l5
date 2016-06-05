@@ -25,6 +25,10 @@ Route::controllers([
    'password' => 'Auth\PasswordController'
 ]);
 
+Route::get('foo', ['middleware' => 'manager', function(){
+   return 'This page may only be viewed by managers';
+}]);
+
 //KiosksController
 //Route::get("kiosks", "KiosksController@index");
 //Route::get("kiosks/create", "KiosksController@create");
