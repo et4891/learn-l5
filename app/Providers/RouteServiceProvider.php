@@ -27,6 +27,15 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot($router);
+
+//        //In some situations, if we don't want to find by the wildcard identifier that we want to use where clause
+//        //We can use the below to find the $id that's published() then find the $id
+//        $router->bind('articles', function($id){
+//           return \App\Article::published()->findOrFail($id);
+//        });
+
+        //This would bind the arcticles which is a wildcard key to \App\Article
+        $router->model('articles', '\App\Article');
     }
 
     /**

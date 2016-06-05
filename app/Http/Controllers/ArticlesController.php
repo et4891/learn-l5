@@ -23,7 +23,7 @@ class ArticlesController extends Controller
     public function __construct() {
         //auth value is referring to the key in Kernel.php > $routeMiddleware array
 //        $this->middleware('auth'); // all routes will be redirected
-//        $this->middleware('auth', ['only' => 'create']);  //only create route will be redirected
+        $this->middleware('auth', ['only' => 'create']);  //only create route will be redirected
 //        $this->middleware('auth', ['except' => 'create']);  //all routes except create will be redirected
     }
 
@@ -40,13 +40,12 @@ class ArticlesController extends Controller
     }
 
     /**
-     * @param $id
+     * @param Article $article
      * @return mixed
+     * @internal param $id
      */
-    public function show($id){
-        $article = Article::findOrFail($id);
+    public function show(Article $article){
         $title = $article->title;
-
         return view('articles.show', compact('article', 'title'));
     }
 
@@ -70,13 +69,20 @@ class ArticlesController extends Controller
         return redirect('articles');
     }
 
-    public function edit($id) {
-        $article = Article::findOrFail($id);
+    /**
+     * @param Article $article
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Article $article) {
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id, ArticleRequest $request) {
-        $article = Article::findOrFail($id);
+    /**
+     * @param Article $article
+     * @param ArticleRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(Article $article, ArticleRequest $request) {
         $article->update($request->all());
 
         return redirect('articles');
